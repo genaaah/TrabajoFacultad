@@ -9,7 +9,7 @@
 
 body {
   min-height: 100hv;
- background: #000000;
+  background: #000000;
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.2);
@@ -129,4 +129,57 @@ header.scrolled {
 
 .verde {
   color: #80ed99;
+}
+
+/* SECTION 2 */
+
+.intro2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  margin-top: 10px;
+  gap: 250px;
+}
+
+.intro2-text {
+  flex: 1;
+}
+
+.intro2-text h2 {
+  font-size: 55px;
+  margin-bottom: 20px;
+  padding: 5px;
+  color: #fff;
+}
+
+.intro2-text .verde {
+  color: #80ed99;
+}
+
+.intro2-text p {
+  font-size: 18px;
+  color: #c7c7c7;
+}
+
+.galeria {
+  display: flex;
+  width: 800px;
+  height: 530px;
+}
+
+.galeria img {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  border-radius: 2%;
+  opacity: 0.8;
+  transition: 0.5s ease;
+}
+
+.galeria img:hover {
+  cursor: crosshair;
+  width: 350px;
+  opacity: 1;
+  filter: contrast(120%);
 }
