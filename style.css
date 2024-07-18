@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100hv;
+ background: #000000;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
+
+  background-image: linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+  background-size: var(--gap) var(--gap);
+}
+
+/* NAVBAR */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+header.scrolled {
+  background: #40916c;
+  transition: 0.5s;
+}
+
+.logo {
+  font-size: 32px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.logo .drop {
+  color: #fff;
+}
+
+.logo .market {
+  color: #80ed99;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 300;
+  text-decoration: none;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #80ed99;
+  transition: 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+/* SECTION 1 */
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  margin-top: 50px;
+  gap: 200px;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-text h1 {
+  font-size: 55px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.intro-text p {
+  font-size: 18px;
+  color: #c7c7c7;
+}
+
+.intro-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.verde {
+  color: #80ed99;
+}
