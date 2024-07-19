@@ -13,7 +13,6 @@ body {
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.2);
-
   background-image: linear-gradient(
       -90deg,
       transparent calc(var(--gap) - var(--line)),
@@ -91,7 +90,7 @@ header.scrolled {
 
 /* SECTION 1 */
 
-.intro {
+.section1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,28 +99,28 @@ header.scrolled {
   gap: 200px;
 }
 
-.intro-text {
+.section1-text {
   flex: 1;
 }
 
-.intro-text h1 {
+.section1-text h1 {
   font-size: 55px;
   margin-bottom: 20px;
   color: #fff;
 }
 
-.intro-text p {
+.section1-text p {
   font-size: 18px;
   color: #c7c7c7;
 }
 
-.intro-image {
+.section1-image {
   flex: 1;
   display: flex;
   justify-content: flex-end;
 }
 
-.intro-image img {
+.section1-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -133,7 +132,7 @@ header.scrolled {
 
 /* SECTION 2 */
 
-.intro2 {
+.section2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,22 +141,22 @@ header.scrolled {
   gap: 250px;
 }
 
-.intro2-text {
+.section2-text {
   flex: 1;
 }
 
-.intro2-text h2 {
+.section2-text h2 {
   font-size: 55px;
   margin-bottom: 20px;
   padding: 5px;
   color: #fff;
 }
 
-.intro2-text .verde {
+.section2-text .verde {
   color: #80ed99;
 }
 
-.intro2-text p {
+.section2-text p {
   font-size: 18px;
   color: #c7c7c7;
 }
@@ -170,9 +169,10 @@ header.scrolled {
 
 .galeria img {
   width: 0px;
+  filter: grayscale(100%);
   flex-grow: 1;
   object-fit: cover;
-  border-radius: 2%;
+  border-radius: 3%;
   opacity: 0.8;
   transition: 0.5s ease;
 }
@@ -180,6 +180,29 @@ header.scrolled {
 .galeria img:hover {
   cursor: crosshair;
   width: 350px;
+  filter: grayscale(0%);
   opacity: 1;
   filter: contrast(120%);
+}
+
+/* SECTION 3 */
+
+
+
+/* ANIMACIONES */
+
+@keyframes move {
+  0% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(25px);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.moving-img {
+  animation: move 5s infinite;
 }
