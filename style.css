@@ -195,84 +195,95 @@ header.scrolled {
   justify-content: center;
   padding: 20px;
   margin-top: 50px;
-}
 
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  width: 350px;
-  padding: 16px;
-  transition: transform 0.2s;
-}
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 350px;
+    padding: 16px;
+    transition: transform 0.2s;
+  }
 
-.card:hover {
-  transform: scale(1.05);
-}
+  .card:hover {
+    transform: scale(1.05);
+  }
 
-.card img {
-  max-width: 100%;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-}
+  .card img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
 
-.card .texts {
-  text-align: center;
-}
+  .card .texts {
+    text-align: center;
+  }
 
-.card h2 {
-  font-size: 1.3em;
-  margin: 0 0 10px;
-}
+  .card h2 {
+    font-size: 1.3em;
+    margin: 0 0 10px;
+  }
 
-.card p {
-  margin: 0 0 10px;
-  color: #555;
-}
+  .card p {
+    margin: 0 0 10px;
+    color: #555;
+  }
 
-.card .quantity-selector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
+  .card .quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
 
-.card .quantity-selector input[type="number"] {
-  width: 50px;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  text-align: center;
-}
+  .card .quantity-selector input[type="number"] {
+    width: 50px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+  }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-.card .quantity-selector button {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 0 5px;
-}
+  .card .quantity-selector button {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+  }
 
-.card .quantity-selector button:hover {
-  background-color: #f0f0f0;
-}
+  .card .quantity-selector button:hover {
+    background-color: #f0f0f0;
+  }
 
-.card .availability {
-  text-align: center;
-  color: #40916c;
-  font-size: 0.9em;
-  margin-top: 5px;
+  .card .availability {
+    text-align: center;
+    color: #40916c;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+
+  .btnAdd {
+    padding: 10px 17px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    border: 1px solid #a1a1a1;
+  }
 }
 
 /* ANIMACIONES */

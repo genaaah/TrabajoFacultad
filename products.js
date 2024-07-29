@@ -106,7 +106,7 @@ const data = [
     quantity: 70,
     description: "Aceite de origen vegetal.",
     img: "https://static.cotodigital3.com.ar/sitios/fotos/full/00011700/00011760.jpg?3.0.172c",
-  }
+  },
 ];
 
 // Función para crear una tarjeta de producto
@@ -121,16 +121,16 @@ function createCard(product) {
             </div>
             <div class="quantity-selector">
                 <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="1" min="1" max="${product.quantity}" />
+                <input id="buy" type="number" value="1" min="1" max="${product.quantity}" />
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <div class="availability">
+            <div class="availability" id="stock">
                 +${product.quantity} disponibles
             </div>
+            <button class="btnAdd" onclick="buyProduct(${product.id}, this)">Agregar al carrito</button>
         </div>
     `;
 }
-
 
 // Función para mostrar los productos en la sección
 function displayProducts() {
@@ -138,7 +138,6 @@ function displayProducts() {
   const cards = data.map(createCard).join("");
   productsSection.innerHTML = cards;
 }
-
 
 // Función para clickear los botones y seleccionar la cantidad(handlerclick)
 function changeQuantity(button, change) {
@@ -150,6 +149,32 @@ function changeQuantity(button, change) {
     newValue = parseInt(input.max);
   }
   input.value = newValue;
+}
+
+// Función para actualizar stock de productos
+function buyProduct(productId, button) {
+  const card = button.parentElement;
+  const input = card.querySelector("#buy");
+  const quantityBuy = parseInt(input.value);
+
+  data.forEach((product) => {
+    if (product.id === productId) {
+      if (quantityBuy <= product.quantity) {
+        product.quantity -= quantityBuy;
+        const stock = card.querySelector("#stock");
+        stock.textContent = `+${product.quantity} disponibles`;
+
+        input.value = 1;
+
+        if (product.quantity === 0) {
+          button.disabled = true;
+        }
+      } else {
+        alert("No hay suficiente stock disponible.");
+        input.value = 1;
+      }
+    }
+  });
 }
 
 displayProducts();
