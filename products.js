@@ -170,7 +170,13 @@ function buyProduct(productId, button) {
           button.disabled = true;
         }
       } else {
-        alert("No hay suficiente stock disponible.");
+        Swal.fire({
+          title: "Error!",
+          text: "No hay suficiente stock disponible.",
+          icon: "error",
+          confirmButtonText: "Volver",
+        });
+
         input.value = 1;
       }
     }
