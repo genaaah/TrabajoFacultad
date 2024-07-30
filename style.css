@@ -286,6 +286,120 @@ header.scrolled {
   }
 }
 
+/* FORMULARIO */
+
+.containerForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  gap: 50px;
+}
+
+.formulario,
+.contactInfo {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0px 15px 60px #80ed99;
+  outline: 1px solid #2b9962;
+  border-radius: 10px;
+}
+
+.form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3em;
+  color: #80ed99;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form input[type="text"],
+.form input[type="number"],
+.form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #3eca5e;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #80ed99;
+}
+
+.warnings {
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color: red;
+  padding-top: 10px;
+}
+
+.contactInfo {
+  text-align: center;
+}
+
+.contactInfo .cartIcon {
+  margin-bottom: 10px;
+}
+
+.contactInfo h1 {
+  text-align: center;
+  color: #80ed99;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contactInfo h2 {
+  text-align: center;
+  color: #555;
+  margin: 0;
+  padding: 5px;
+}
+
+.contactInfo h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.contactInfo h2 {
+  font-size: 1.2em;
+}
+
 /* ANIMACIONES */
 
 @keyframes move {
