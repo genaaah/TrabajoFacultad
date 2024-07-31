@@ -157,17 +157,18 @@ function addToCart(productId, button) {
 
   data.forEach((product) => {
     if (product.id === productId) {
-      if (quantityBuy <= product.quantity) {
+      if (quantityBuy > 0 && quantityBuy <= product.quantity) {
         product.quantity -= quantityBuy;
         const stock = card.querySelector("#stock");
+
         if (product.quantity === 0) {
-          stock.textContent = "0 disponibles";
+          stock.textContent = "Sin stock";
           card.classList.add("disabled");
+          input.value = 0;
         } else {
           stock.textContent = `+${product.quantity} disponibles`;
+          input.value = 1;
         }
-
-        input.value = 1;
 
         //Transforma el precio en numero
         const productPrice = parseFloat(
