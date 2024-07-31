@@ -109,9 +109,6 @@ const data = [
   },
 ];
 
-
-let totalPrice = 0;
-
 function createCard(product) {
   return `
         <div class="card">
@@ -156,28 +153,34 @@ function addToCart(productId, button) {
   const input = card.querySelector("#buy");
   const quantityBuy = parseInt(input.value);
 
+  let totalPrice = 0;
+
   data.forEach((product) => {
     if (product.id === productId) {
       if (quantityBuy <= product.quantity) {
         product.quantity -= quantityBuy;
         const stock = card.querySelector("#stock");
-        stock.textContent = `+${product.quantity} disponibles`;
+        if (product.quantity === 0) {
+          stock.textContent = "0 disponibles";
+          card.classList.add("disabled");
+        } else {
+          stock.textContent = `+${product.quantity} disponibles`;
+        }
 
         input.value = 1;
 
-        if (product.quantity === 0) {
-          button.disabled = true;
-        }
+        //Transforma el precio en numero
+        const productPrice = parseFloat(
+          product.price.replace(/\./g, "").replace(",", ".")
+        );
 
-        //transforma el precio en numero
-        const productPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'));
-
-       //suma el total de los productos
+        //Suma el total de los productos
         totalPrice += productPrice * quantityBuy;
 
-       //lo manda al html
-        document.getElementById("total-price").textContent = totalPrice.toFixed(2).replace('.', ',');
-
+        //Lo envia al html
+        document.getElementById("total-price").textContent = totalPrice
+          .toFixed(2)
+          .replace(".", ",");
       } else {
         Swal.fire({
           title: "Error!",
@@ -197,39 +200,41 @@ function addToCart(productId, button) {
   });
 }
 
-  let comprar = document.getElementById("comprar").addEventListener("click", function() {
-  let total = document.getElementById("total-price").textContent;
-  if(total !== "0,00"){
-    Swal.fire({
-      title: "Compra realizada",
-      text: "Su compra se a realizado correctamente.",
-      icon: "success",
-      confirmButtonText: "Volver",
-      timer: "3000",
-      timerProgressBar: true,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      confirmButtonColor: "#80ed99",
-    }).then((response) => {
-      if (response.isConfirmed) {
-        window.location.href = "home.html";
-      } else {
-        window.location.href = "home.html";
-      }
-    });
-  }else{
-    Swal.fire({
-      title: "Error!",
-      text: "No productos dentro de el carrito.",
-      icon: "error",
-      confirmButtonText: "Volver",
-      timer: "3000",
-      timerProgressBar: true,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      confirmButtonColor: "#80ed99",
-    });
-  }
-});
+let comprar = document
+  .getElementById("comprar")
+  .addEventListener("click", function () {
+    let total = document.getElementById("total-price").textContent;
+    if (total !== "0,00") {
+      Swal.fire({
+        title: "Compra realizada",
+        text: "Su compra se a realizado correctamente.",
+        icon: "success",
+        confirmButtonText: "Volver",
+        timer: "3000",
+        timerProgressBar: true,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonColor: "#80ed99",
+      }).then((response) => {
+        if (response.isConfirmed) {
+          window.location.href = "home.html";
+        } else {
+          window.location.href = "home.html";
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "No productos dentro de el carrito.",
+        icon: "error",
+        confirmButtonText: "Volver",
+        timer: "3000",
+        timerProgressBar: true,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonColor: "#80ed99",
+      });
+    }
+  });
 
 displayProducts();

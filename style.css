@@ -285,9 +285,14 @@ header.scrolled {
     font-weight: 500;
     border: 1px solid #a1a1a1;
   }
+
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
-.total-container{
+.total-container {
   color: white;
   text-align: center;
   font-size: 1.5em;
@@ -319,7 +324,6 @@ header.scrolled {
 .comprar:active {
   opacity: 0.5;
 }
-
 
 /* FORMULARIO */
 
