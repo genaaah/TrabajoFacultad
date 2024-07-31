@@ -109,7 +109,9 @@ const data = [
   },
 ];
 
-// Función para crear una tarjeta de producto
+
+let totalPrice = 0;
+
 function createCard(product) {
   return `
         <div class="card">
@@ -127,19 +129,17 @@ function createCard(product) {
             <div class="availability" id="stock">
                 +${product.quantity} disponibles
             </div>
-            <button class="btnAdd" onclick="buyProduct(${product.id}, this)">Agregar al carrito</button>
+            <button class="btnAdd" onclick="addToCart(${product.id}, this)">Agregar al carrito</button>
         </div>
     `;
 }
 
-// Función para mostrar los productos en la sección
 function displayProducts() {
   const productsSection = document.getElementById("products");
   const cards = data.map(createCard).join("");
   productsSection.innerHTML = cards;
 }
 
-// Función para clickear los botones y seleccionar la cantidad(handlerclick)
 function changeQuantity(button, change) {
   const input = button.parentElement.querySelector('input[type="number"]');
   let newValue = parseInt(input.value) + change;
@@ -151,8 +151,7 @@ function changeQuantity(button, change) {
   input.value = newValue;
 }
 
-// Función para actualizar stock de productos
-function buyProduct(productId, button) {
+function addToCart(productId, button) {
   const card = button.parentElement;
   const input = card.querySelector("#buy");
   const quantityBuy = parseInt(input.value);
@@ -169,12 +168,27 @@ function buyProduct(productId, button) {
         if (product.quantity === 0) {
           button.disabled = true;
         }
+
+        //transforma el precio en numero
+        const productPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'));
+
+       //suma el total de los productos
+        totalPrice += productPrice * quantityBuy;
+
+       //lo manda al html
+        document.getElementById("total-price").textContent = totalPrice.toFixed(2).replace('.', ',');
+
       } else {
         Swal.fire({
           title: "Error!",
           text: "No hay suficiente stock disponible.",
           icon: "error",
           confirmButtonText: "Volver",
+          timer: "3000",
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          confirmButtonColor: "#80ed99",
         });
 
         input.value = 1;
@@ -182,5 +196,40 @@ function buyProduct(productId, button) {
     }
   });
 }
+
+  let comprar = document.getElementById("comprar").addEventListener("click", function() {
+  let total = document.getElementById("total-price").textContent;
+  if(total !== "0,00"){
+    Swal.fire({
+      title: "Compra realizada",
+      text: "Su compra se a realizado correctamente.",
+      icon: "success",
+      confirmButtonText: "Volver",
+      timer: "3000",
+      timerProgressBar: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      confirmButtonColor: "#80ed99",
+    }).then((response) => {
+      if (response.isConfirmed) {
+        window.location.href = "home.html";
+      } else {
+        window.location.href = "home.html";
+      }
+    });
+  }else{
+    Swal.fire({
+      title: "Error!",
+      text: "No productos dentro de el carrito.",
+      icon: "error",
+      confirmButtonText: "Volver",
+      timer: "3000",
+      timerProgressBar: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      confirmButtonColor: "#80ed99",
+    });
+  }
+});
 
 displayProducts();

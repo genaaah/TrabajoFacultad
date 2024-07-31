@@ -50,5 +50,23 @@ btn.addEventListener("click", (e) => {
     });
 
     saveAs(descarga, "InformacionContacto.txt");
+
+    Swal.fire({
+      title: "Descargando",
+      text: "El formulario se a enviado correctamente.",
+      icon: "success",
+      confirmButtonText: "Volver",
+      timer: "3000",
+      timerProgressBar: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      confirmButtonColor: "#80ed99",
+    }).then((response) => {
+      if (response.isConfirmed) {
+        window.location.href = "home.html";
+      } else {
+        window.location.href = "home.html";
+      }
+    });
   }
 });
