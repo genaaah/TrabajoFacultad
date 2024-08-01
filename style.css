@@ -28,6 +28,16 @@ body {
   background-size: var(--gap) var(--gap);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 /* NAVBAR */
 
 header {
@@ -51,10 +61,6 @@ header {
 
   .logo .drop {
     color: #fff;
-  }
-
-  .logo .market {
-    color: #80ed99;
   }
 
   .navbar a {
@@ -86,6 +92,86 @@ header {
 header.scrolled {
   background: #40916c;
   transition: 0.5s;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: #40916c;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #fff;
+}
+
+.footer-section ul,
+.footer-section a {
+  font-size: 14px;
+  color: #fff;
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #80ed99;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links li {
+  margin-right: 10px;
+}
+
+.links li a {
+  font-size: 14px;
+}
+
+.links li a:hover {
+  color: #80ed99;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  color: #145337;
+}
+
+.market {
+  color: #80ed99;
 }
 
 /* SECTION 1 */
@@ -314,6 +400,7 @@ header.scrolled {
   border: none;
   font-size: 24px;
   color: white;
+  margin-bottom: 20px;
 }
 
 .comprar:hover {
