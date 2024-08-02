@@ -24,7 +24,7 @@ btn.addEventListener("click", (e) => {
     entrada = true;
   }
   if (!regexEmail.test(email.value)) {
-    warnings += `El mail no es valido <br>`;
+    warnings += `El mail no es valido <br> <hr>`;
     entrada = true;
   }
   if (number.value.length < 10) {
